@@ -11,7 +11,7 @@ public:
     static int part_one() {
         string input; // declare a string object to store input lines
 
-        int total = 1; // store total houses receiving at least one present as an integer
+        int total = 1; // store total houses receiving at least 1 present as an integer
         pair<int, int> coords(0, 0); // use a pair to store coordinates of each house
         list<pair<int,int> > lst; // use a list of pairs to store coordinates of houses already visited
         lst.push_front(coords); // add the origin to the list of visited coords
@@ -44,7 +44,7 @@ public:
     static int part_two() {
         string input; // declare a string object to store input lines
 
-        int total = 1; // store total houses receiving at least one present as an integer
+        int total = 1; // store total houses receiving at least 1 present as an integer
         pair<int, int> santa_coords(0,0); // use a pair to store santas current coordinate
         pair<int, int> robot_coords(0,0); // use a pair to store robo-santas current coordinate
         list<pair<int,int> > lst; // use a list to store coordinates already visited
