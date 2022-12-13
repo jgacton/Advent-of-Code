@@ -47,39 +47,38 @@ public:
         int total = 1; // store total houses receiving at least one present as an integer
         pair<int, int> santa_coords(0,0);
         pair<int, int> robot_coords(0,0);
-        bool isSanta = true;
         list<pair<int,int> > lst;
         lst.push_front(santa_coords);
 
         ifstream myfile("input.txt"); // stream in the input file
         while (getline (myfile, input)) { // iterate through each line of the input
-            for(char i : input) { // iterate through each character in the input line
-                if (i == '^') {
-                    if(isSanta) {
+            for(int i = 0; i < input.length(); i++) { // iterate through each character in the input line
+                if (input[i] == '^') {
+                    if(i % 2 == 0) {
                         santa_coords.first += 1;
                     } else {
                         robot_coords.first += 1;
                     }
-                } if (i == '>') {
-                    if(isSanta) {
+                } if (input[i] == '>') {
+                    if(i % 2 == 0) {
                         santa_coords.second += 1;
                     } else {
                         robot_coords.second += 1;
                     }
-                } if (i == 'v') {
-                    if(isSanta) {
+                } if (input[i] == 'v') {
+                    if(i % 2 == 0) {
                         santa_coords.first -= 1;
                     } else {
                         robot_coords.first -= 1;
                     }
-                } else if (i == '<') {
-                    if(isSanta) {
+                } else if (input[i] == '<') {
+                    if(i % 2 == 0) {
                         santa_coords.second -= 1;
                     } else {
                         robot_coords.second -= 1;
                     }
                 }
-                if(isSanta) {
+                if(i % 2 == 0) {
                     if(!contains(lst, santa_coords)) {
                         total++;
                         lst.push_front(santa_coords);
@@ -90,7 +89,6 @@ public:
                         lst.push_front(robot_coords);
                     }
                 }
-                isSanta = false;
             }
         }
 
